@@ -45,6 +45,9 @@ def turn(deck, current_score):
 
 
 def play_game():
+    """
+    Mian block of code with all game functionality
+    """
     deck = generate_deck()
     computer_score = 0
     player_score = 0
@@ -109,7 +112,7 @@ def validate_input(repeat):
     """
     while True:
         if repeat == 'Y':
-            start_game()
+            main()
         elif repeat == 'N':
             print("Goodbye!")
             exit()
@@ -118,7 +121,10 @@ def validate_input(repeat):
             repeat = input("Would you like to repeat? Y/N\n")
 
 
-def start_game():
+def main():
+    """
+    Executes the main program
+    """
     enter = input("           *** PRESS ENTER TO START ***              \n")
     if enter == '':  # hitting enter == '' empty string
         play_game()
@@ -135,4 +141,4 @@ print("|  score should be collected is 21. Whoever gets a  |")
 print("|  score of 21 first is the winner!                 |")
 print(" ___________________________________________________ ")
 
-start_game()
+main()
