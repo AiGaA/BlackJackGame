@@ -34,7 +34,7 @@ def get_card_value(card):
 
 def turn(deck, current_score):
     """
-    Generates cards from the deck
+    Returns card score
     """
     card = deck.pop(0)
     print(">> ", card)
@@ -44,30 +44,20 @@ def turn(deck, current_score):
     return new_score
 
 
-def computer_cards():
+def play_game():
     deck = generate_deck()
     computer_score = 0
+    player_score = 0
     print("-------------Computer Cards-------------")
     computer_score = turn(deck, computer_score)
     computer_score = turn(deck, computer_score)
     print("Computer score:", computer_score)
 
-
-def player_cards():
-    deck = generate_deck()
-    player_score = 0
     print("-------------Players Cards-------------")
     player_score = turn(deck, player_score)
     player_score = turn(deck, player_score)
     print("Your score:", player_score)
 
-
-def play_game():
-    deck = generate_deck()
-    computer_score = 0
-    player_score = 0
-    computer_cards()
-    player_cards()
     print("-------------Begin Game-------------")
     keep_playing = True
     while keep_playing:
@@ -76,42 +66,73 @@ def play_game():
             player_score = turn(deck, player_score)
             print("Your total:", player_score)
             print("Computer total:", computer_score)
+
             if player_score > 21:
                 print("-------------You bust, computer wins!-------------")
-                keep_playing = False
+                user_input = input("Would you like to repeat? Y/N\n")
+                validate_input(user_input)
+
         elif (user_choice == "STAND"):
             print("-------------Computer Cards-------------")
             computer_score = turn(deck, computer_score)
             print("Your total:", player_score)
             print("Computer total:", computer_score)
+
             if computer_score > 21:
                 print("-------------Computer busts, you win!-------------")
+                user_input = input("Would you like to repeat? Y/N\n")
+                validate_input(user_input)
+
             elif computer_score == player_score:
                 print("-------------Tie!-------------")
+                user_input = input("Would you like to repeat? Y/N\n")
+                validate_input(user_input)
+
             elif computer_score > player_score:
                 print("-------------You lose, computer wins!-------------")
+                user_input = input("Would you like to repeat? Y/N\n")
+                validate_input(user_input)
+
             else:
                 print("-------------Computer loses, you win!-------------")
-            keep_playing = False
+                user_input = input("Would you like to repeat? Y/N\n")
+                validate_input(user_input)
+
         else:
             print("Please enter valid input: 'HIT' or 'STAND'")
 
 
-def start_game():
-    print(" ___________________________________________________ ")
-    print("|          Welcome to the Black Jack game!          |")
-    print("|  The deck of cards is randomly generated for the  |")
-    print("|  player and the computer. To win the game, total  |")
-    print("|  score should be collected is 21. Whoever gets    |")
-    print("|  a score of 21 first is the winner!               |")
-    print(" ___________________________________________________ ")
+def validate_input(repeat):
+    """
+    This block of code will validate if 'Y' or 'N' has been entered,
+    game has ended and user get to choose to play again or end the game. 
+    """
+    while True:
+        if repeat == 'Y':
+            start_game()
+        elif repeat == 'N':
+            print("Goodbye!")
+            exit()
+        else:
+            print("Please enter 'Y' for yes or 'N' for no.")
+            repeat = input("Would you like to repeat? Y/N\n")
 
-    enter = input("           *** PRESS ENTER TO START ***              ")
+
+def start_game():
+    enter = input("           *** PRESS ENTER TO START ***              \n")
     if enter == '':  # hitting enter == '' empty string
         play_game()
     else:
         print("Exiting program.")
         exit()
 
+
+print(" ___________________________________________________ ")
+print("|          Welcome to the Black Jack game!          |")
+print("|  The deck of cards is randomly generated for the  |")
+print("|  player and the computer. To win the game, total  |")
+print("|  score should be collected is 21. Whoever gets a  |")
+print("|  score of 21 first is the winner!                 |")
+print(" ___________________________________________________ ")
 
 start_game()
