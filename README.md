@@ -1,5 +1,38 @@
+# Black Jack Game
+
 BlackJack is a Python terminal game, which runs in the Code Institutes mock terminal on Heroku.
-Users simply can try to beat the computer by choosing which turn to take - 'HIT' or 'STAND'. 
+
+Users simply can try to beat the computer by choosing which turn to take - 'HIT' or 'STAND'.
+
+## How to play
+
+## Features
+
+### Future Features
+
+## Data Model
+
+## Testing
+
+The project has been manually tested by doing following:
+- Testing in local and the deployed Heroku terminal.
+- Giving wrong inputs, apart from exactly 'HIT' or 'STAND'.
+- Passed code through PEP8 linter and confirmed there are no problems.
+
+
+
+## Bugs
+
+### Solved Bugs
+
+### Remaining Bugs
+
+## Validator Testing
+
+## Deployment
+### Heroku
+
+## Credits
 
 ## Reminders
 
