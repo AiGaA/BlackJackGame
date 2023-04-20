@@ -12,6 +12,9 @@ cards_values = {"A": 11, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
 
 
 def generate_deck():
+    """
+    Shuffles all cards in a deck
+    """
     deck = []
     for suit in suits:
         for card in cards:
@@ -21,12 +24,18 @@ def generate_deck():
 
 
 def get_card_value(card):
+    """
+    Get card key values
+    """
     key = card[0]
     value = cards_values[key]
     return value
 
 
 def turn(deck, current_score):
+    """
+    Generates cards from the deck
+    """
     card = deck.pop(0)
     print(">> ", card)
     card_value = get_card_value(card)
@@ -35,20 +44,30 @@ def turn(deck, current_score):
     return new_score
 
 
-def play_game():
+def computer_cards():
     deck = generate_deck()
     computer_score = 0
-    player_score = 0
     print("-------------Computer Cards-------------")
     computer_score = turn(deck, computer_score)
     computer_score = turn(deck, computer_score)
     print("Computer score:", computer_score)
 
+
+def player_cards():
+    deck = generate_deck()
+    player_score = 0
     print("-------------Players Cards-------------")
     player_score = turn(deck, player_score)
     player_score = turn(deck, player_score)
     print("Your score:", player_score)
 
+
+def play_game():
+    deck = generate_deck()
+    computer_score = 0
+    player_score = 0
+    computer_cards()
+    player_cards()
     print("-------------Begin Game-------------")
     keep_playing = True
     while keep_playing:
@@ -61,7 +80,7 @@ def play_game():
                 print("-------------You bust, computer wins!-------------")
                 keep_playing = False
         elif (user_choice == "STAND"):
-            print("-------------Computer Hand-------------")
+            print("-------------Computer Cards-------------")
             computer_score = turn(deck, computer_score)
             print("Your total:", player_score)
             print("Computer total:", computer_score)
@@ -70,7 +89,7 @@ def play_game():
             elif computer_score == player_score:
                 print("-------------Tie!-------------")
             elif computer_score > player_score:
-                print("-------------You lose, dealer wins!-------------")
+                print("-------------You lose, computer wins!-------------")
             else:
                 print("-------------Computer loses, you win!-------------")
             keep_playing = False
@@ -78,4 +97,21 @@ def play_game():
             print("Please enter valid input: 'HIT' or 'STAND'")
 
 
-play_game()
+def start_game():
+    print(" ___________________________________________________ ")
+    print("|          Welcome to the Black Jack game!          |")
+    print("|  The deck of cards is randomly generated for the  |")
+    print("|  player and the computer. To win the game, total  |")
+    print("|  score should be collected is 21. Whoever gets    |")
+    print("|  a score of 21 first is the winner!               |")
+    print(" ___________________________________________________ ")
+
+    enter = input("           *** PRESS ENTER TO START ***              ")
+    if enter == '':  # hitting enter == '' empty string
+        play_game()
+    else:
+        print("Exiting program.")
+        exit()
+
+
+start_game()
