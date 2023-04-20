@@ -1,4 +1,5 @@
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. 
+BlackJack is a Python terminal game, which runs in the Code Institutes mock terminal on Heroku.
+Users simply can try to beat the computer by choosing which turn to take - 'HIT' or 'STAND'. 
 
 ## Reminders
 
