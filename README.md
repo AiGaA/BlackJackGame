@@ -36,9 +36,11 @@ When game reaches to an end and either user or a delaer is a winner/loser the la
 
 - Hid the oponents card, so player doesn't see what the computer(delaer) has.
 
-## Data Model
+## Technologies and Languages Used
 
-- 
+- Python
+- Heroku for Deployment
+- Github/Gitpod - version control
 
 ## Testing
 
