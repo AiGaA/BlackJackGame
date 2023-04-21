@@ -77,7 +77,8 @@ This project was deployed on Heroku:
 
     1. `heroku/python`
     2. `heroku/nodejs`
-
+    
+- Add Config Var with the key PORT and the value is 8000.
 - Connect your GitHub repository and deploy as normal.
 
 
