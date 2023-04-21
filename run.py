@@ -25,7 +25,7 @@ def generate_deck():
 
 def get_card_value(card):
     """
-    Get card key values
+    Get card values
     """
     key = card[0]
     value = cards_values[key]
@@ -46,7 +46,7 @@ def turn(deck, current_score):
 
 def play_game():
     """
-    Mian block of code with all game functionality
+    Main block of code with all game functionality
     """
     deck = generate_deck()
     computer_score = 0
@@ -108,7 +108,7 @@ def play_game():
 def validate_input(repeat):
     """
     This block of code will validate if 'Y' or 'N' has been entered,
-    game has ended and user get to choose to play again or end the game. 
+    game has ended and user get to choose to play again or end the game.
     """
     while True:
         if repeat == 'Y':
